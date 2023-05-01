@@ -1,0 +1,28 @@
+---
+title: "Analisis Komponen Utama (Principal Component Analysis/PCA)"
+author: "Arditya Criszardin"
+date: "2023-05-01"
+output: html_document
+---
+
+```{r}
+# Memuat dataset iris
+data(iris)
+
+# Memilih variabel numerik
+X <- iris[, 1:4]
+
+# Melakukan scaling data
+X_scaled <- scale(X)
+
+# Melakukan PCA dengan 4 komponen utama
+pca <- prcomp(X_scaled, scale. = TRUE, center = TRUE, rank. = 4)
+
+# Melihat variance dijelaskan oleh masing-masing komponen
+summary(pca)
+
+# Melihat plot dari masing-masing komponen
+plot(pca, type = "l")
+
+```
+
